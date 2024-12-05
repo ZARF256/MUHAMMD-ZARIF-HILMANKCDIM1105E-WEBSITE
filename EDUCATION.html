@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        body {
+            background-color: #e67ea3;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        header {
+            background-color: #c3588f;
+            text-align: center;
+            padding: 10px;
+        }
+        footer {
+            background-color: #c3588f;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h2 {
+            color: white;
+        }
+        p {
+            margin: 10px 0;
+        }
+
+        /* Flexbox container for each section */
+        .section {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the images */
+            flex-wrap: wrap; /* Allow images to wrap if needed */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Thumbnails for images */
+        .education-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%; /* Ensure the image does not overflow */
+            object-fit: contain;
+            margin: auto;
+        }
+
+        #lightbox .arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        #lightbox .arrow-left {
+            left: 10px;
+        }
+
+        #lightbox .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Education</h1>
+    </header>
+
+    <!-- SK Seri Siakap Section -->
+    <h2>SK Seri Siakap (2013-2016)</h2>
+    <div class="section">
+        <div>
+            <img src="logo sekolah rendah.jpg" alt="SK Seri Siakap Logo" class="education-img" onclick="openLightbox(0)">
+            <p>SK Seri Siakap Logo</p>
+        </div>
+    </div>
+
+    <!-- SMK Sri Kurau Section -->
+    <h2>SMK Sri Kurau (2017-2021)</h2>
+    <div class="section">
+        <div>
+            <img src="logosekolah.jpg" alt="SMK Sri Kurau Logo" class="education-img" onclick="openLightbox(1)">
+            <p>SMK Sri Kurau Logo</p>
+        </div>
+        <div>
+            <img src="HIGHSCHOOL1.jpg" alt="SMK Sri Kurau Image 1" class="education-img" onclick="openLightbox(2)">
+        </div>
+        <div>
+            <img src="HIGHSCHOOL2.jpg" alt="SMK Sri Kurau Image 2" class="education-img" onclick="openLightbox(3)">
+        </div>
+        <div>
+            <img src="HIGHSCHOOL3.jpg" alt="SMK Sri Kurau Image 3" class="education-img" onclick="openLightbox(4)">
+        </div>
+        <div>
+            <img src="HIGHSCHOOL4.jpg" alt="SMK Sri Kurau Image 4" class="education-img" onclick="openLightbox(5)">
+        </div>
+    </div>
+
+    <!-- UiTM Kedah Section -->
+    <h2>Diploma in Information Management - UiTM Kedah (2022-present)</h2>
+    <div class="section">
+        <div>
+            <img src="uitmlogo.png" alt="UiTM Kedah Logo" class="education-img" onclick="openLightbox(6)">
+            <p>UiTM Kedah Logo</p>
+        </div>
+        <div>
+            <img src="COLLEGE1.jpg" alt="UiTM Kedah Image 1" class="education-img" onclick="openLightbox(7)">
+        </div>
+        <div>
+            <img src="COLLEGE2.jpg" alt="UiTM Kedah Image 2" class="education-img" onclick="openLightbox(8)">
+        </div>
+        <div>
+            <img src="COLLEGE3.jpg" alt="UiTM Kedah Image 3" class="education-img" onclick="openLightbox(9)">
+        </div>
+        <div>
+            <img src="COLLEGE5.jpg" alt="UiTM Kedah Image 5" class="education-img" onclick="openLightbox(10)">
+        </div>
+    </div>
+
+    <!-- Lightbox for Image Display -->
+    <div id="lightbox">
+        <span class="arrow arrow-left" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-img" src="" alt="">
+        <span class="arrow arrow-right" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Muhammad Zarif Hilman bin Abdul Rashid. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var images = [
+            "logo sekolah rendah.jpg", // SK Seri Siakap Logo
+            "logosekolah.jpg", // SMK Sri Kurau Logo
+            "HIGHSCHOOL1.jpg", // SMK Sri Kurau 1
+            "HIGHSCHOOL2.jpg", // SMK Sri Kurau 2
+            "HIGHSCHOOL3.jpg", // SMK Sri Kurau 3
+            "HIGHSCHOOL4.jpg", // SMK Sri Kurau 4
+            "uitmlogo.png", // UiTM Kedah Logo
+            "COLLEGE1.jpg", // UiTM Kedah 1
+            "COLLEGE2.jpg", // UiTM Kedah 2
+            "COLLEGE3.jpg", // UiTM Kedah 3
+            "COLLEGE5.jpg"  // UiTM Kedah 5
+        ];
+        var currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = "flex"; // Show the lightbox
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Close the lightbox when clicking outside the image
+        document.getElementById('lightbox').onclick = function(event) {
+            if (event.target === this) {
+                this.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

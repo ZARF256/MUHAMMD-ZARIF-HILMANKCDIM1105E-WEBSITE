@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('IMAGE1.JPG'); /* Use your image as the background */
+            background-size: cover; /* Ensure it covers the full page */
+            background-position: center; /* Center the image */
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff; /* Text color for readability */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black for contrast */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Match header color */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .frameset {
+            display: flex;
+            height: calc(100vh - 160px); /* Adjust height for header and footer */
+        }
+
+        .left-frame {
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.6); /* Slight transparency for blending */
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .menu-card {
+            background-color: #007acc; /* Vibrant blue */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu-card:hover {
+            background-color: #005f99; /* Darker blue for hover */
+            transform: translateY(-3px);
+            transition: 0.3s;
+        }
+
+        .menu-card a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .right-frame {
+            flex-grow: 1;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight white overlay for readability */
+            padding: 20px;
+            overflow-y: auto;
+            color: black; /* Ensure text is readable */
+        }
+
+        .right-frame h2 {
+            color: #007acc; /* Vibrant blue to match menu */
+        }
+
+        /* Social Media Icons in Footer */
+        .social-icons {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        /* Specific Social Media Colors */
+        .facebook {
+            color: #3b5998;
+        }
+
+        .twitter {
+            color: #00acee;
+        }
+
+        .instagram {
+            color: #e1306c;
+        }
+
+        .tiktok {
+            color: #010101;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Personal Website</h1>
+        <p>Created by Muhammad Zarif Hilman bin Abdul Rashid</p>
+    </header>
+
+    <div class="frameset">
+        <!-- Left Navigation Frame -->
+        <div class="left-frame">
+            <h3>Menu</h3>
+            <div class="menu-card">
+                <a href="biodata.html" target="content-frame">Biodata</a>
+            </div>
+            <div class="menu-card">
+                <a href="experience.html" target="content-frame">Experience</a>
+            </div>
+            <div class="menu-card">
+                <a href="education.html" target="content-frame">Education</a>
+            </div>
+            <div class="menu-card">
+                <a href="family.html" target="content-frame">Family</a>
+            </div>
+            <div class="menu-card">
+                <a href="gallery.html" target="content-frame">Gallery</a>
+            </div>
+        </div>
+
+        <!-- Right Content Frame -->
+        <div class="right-frame">
+            <h2>Welcome!</h2>
+            <p>This is the main content area. Select a menu item to view more details about me.</p>
+        </div>
+    </div>
+
+    <!-- Social Media Icons at the Bottom -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com/yourprofile" target="_blank" class="facebook" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/yourprofile" target="_blank" class="twitter" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" class="instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@yourprofile" target="_blank" class="tiktok" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Muhammad Zarif Hilman bin Abdul Rashid. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

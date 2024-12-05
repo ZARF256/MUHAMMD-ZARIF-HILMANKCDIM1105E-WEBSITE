@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <style>
+        body {
+            background-color: #2253a3;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #183c7d;
+            padding: 10px;
+        }
+        footer {
+            background-color: #183c7d;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h2 {
+            margin: 20px 0 10px;
+            color: white;
+        }
+        p {
+            margin: 5px 0;
+        }
+
+        /* Flex container for each section */
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between images */
+            flex-wrap: nowrap; /* Ensure the images stay in a row */
+            margin-bottom: 30px;
+        }
+
+        /* Thumbnails for images */
+        .family-img {
+            width: 150px; /* Set the thumbnail size */
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%; /* Ensure the image does not overflow */
+            object-fit: contain;
+        }
+
+        #lightbox .arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        #lightbox .arrow-left {
+            left: 10px;
+        }
+
+        #lightbox .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Family</h1>
+    </header>
+
+    <!-- Parents Section -->
+    <h2>About My Parents</h2>
+    <div class="section">
+        <div>
+            <img src="FAMILY2.jpg" alt="Father and Mother" class="family-img" onclick="openLightbox(0)">
+            <p><strong>Father:</strong> Mr. Abdul Rashid</p>
+            <p><strong>Mother:</strong> Mrs. Maszita Binti Teh @ Mohd. Piah</p>
+        </div>
+    </div>
+
+    <!-- Siblings Section -->
+    <h2>About My Siblings</h2>
+    <div class="section">
+        <div>
+            <img src="FAMILY3.jpg" alt="Siblings" class="family-img" onclick="openLightbox(1)">
+            <p><strong>Siblings:</strong> A loving and supportive family member.</p>
+        </div>
+    </div>
+
+    <!-- Family Section -->
+    <h2>Family Section</h2>
+    <div class="section">
+        <div>
+            <img src="FAMILY1.jpg" alt="Family" class="family-img" onclick="openLightbox(2)">
+            <p><strong>Family Bond:</strong> Moments that bring us closer.</p>
+        </div>
+    </div>
+
+    <!-- Lightbox for Image Display -->
+    <div id="lightbox">
+        <span class="arrow arrow-left" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-img" src="" alt="">
+        <span class="arrow arrow-right" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Muhammad Zarif Hilman bin Abdul Rashid. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var images = [
+            "FAMILY2.jpg", // Parents
+            "FAMILY3.jpg", // Siblings
+            "FAMILY1.jpg"  // Family Bond
+        ];
+        var currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = "flex"; // Show the lightbox
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Close the lightbox when clicking outside the image
+        document.getElementById('lightbox').onclick = function(event) {
+            if (event.target === this) {
+                this.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
